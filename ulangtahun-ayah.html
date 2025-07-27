@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Ulang Tahun Ayah</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to top, #00c6ff, #0072ff);
+      overflow: hidden;
+      color: #fff;
+      text-align: center;
+    }
+    .container {
+      position: relative;
+      z-index: 2;
+      margin-top: 80px;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      animation: fadeIn 3s ease-in-out;
+    }
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      margin: 20px auto;
+      display: block;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      animation: zoomIn 2s ease-in-out;
+    }
+    button {
+      background: #fff;
+      color: #0072ff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #0072ff;
+      color: #fff;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes zoomIn {
+      from {transform: scale(0.5); opacity: 0;}
+      to {transform: scale(1); opacity: 1;}
+    }
+
+    /* Balon */
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 50px;
+      height: 70px;
+      background: red;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      animation: floatUp 8s infinite ease-in;
+    }
+    .balloon::before {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background: #fff;
+      transform: translateX(-50%);
+    }
+    @keyframes floatUp {
+      0% {transform: translateY(0) translateX(0);}
+      50% {transform: translateY(-50vh) translateX(20px);}
+      100% {transform: translateY(-100vh) translateX(-20px);}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Selamat Ulang Tahun Ayah!</h1>
+    <img src="foto-ayah.jpeg" alt="Foto Ayah">
+    <p>Semoga Ayah selalu sehat, panjang umur, dan penuh kebahagiaan. Kami semua sayang Ayah ❤️</p>
+    <button onclick="playMusic()">Putar Lagu 🎵</button>
+  </div>
+
+  <!-- Musik -->
+  <audio id="birthdaySong" src="WhatsApp Audio 2025-07-27 at 17.36.17.mp3"></audio>
+
+  <!-- Balon -->
+  <script>
+    function createBalloon() {
+      const balloon = document.createElement('div');
+      balloon.classList.add('balloon');
+      balloon.style.left = Math.random() * 100 + 'vw';
+      balloon.style.backgroundColor = 'hsl(' + Math.random() * 360 + ', 100%, 50%)';
+      balloon.style.animationDuration = (5 + Math.random() * 5) + 's';
+      document.body.appendChild(balloon);
+      setTimeout(() => { balloon.remove(); }, 10000);
+    }
+    setInterval(createBalloon, 700);
+
+    function playMusic() {
+      document.getElementById('birthdaySong').play();
+    }
+  </script>
+</body>
+</html>
